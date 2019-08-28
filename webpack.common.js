@@ -15,6 +15,20 @@ module.exports = {
                     "css-loader", //2. Turn CSS to Common Js
                     "sass-loader" // 1. Turn SCSS to CSS
                 ] //Order matters from end, css-loader, turn into javascript, 
+            },
+            {
+                test: /\.html$/,
+                use: ["html-loader"]
+            },
+            {
+                test: /\.(svg|png|jpe?g|gif)$/,
+                use: {
+                    loader: "file-loader",
+                    options:{
+                        name: "[name].[contentHash].[ext]",
+                        outputPath: "imgs"
+                    }
+                }
             }
         ]
     }
