@@ -6,19 +6,8 @@ module.exports = {
         main: "./src/index.js",
         vendor: "./src/vendor.js"
     },
-    plugins: [new HtmlWebpackPlugin({
-        template: "./src/template.html"
-    })],
     module: {
         rules: [
-            {
-                test: /\.scss$/,
-                use: [
-                    "style-loader", //3. Inject style to the DOM
-                    "css-loader", //2. Turn CSS to Common Js
-                    "sass-loader" // 1. Turn SCSS to CSS
-                ] //Order matters from end, css-loader, turn into javascript, 
-            },
             {
                 test: /\.html$/,
                 use: ["html-loader"]
@@ -27,7 +16,7 @@ module.exports = {
                 test: /\.(svg|png|jpe?g|gif)$/,
                 use: {
                     loader: "file-loader",
-                    options:{
+                    options: {
                         name: "[name].[contentHash].[ext]",
                         outputPath: "imgs"
                     }
